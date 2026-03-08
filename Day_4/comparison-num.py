@@ -11,8 +11,7 @@ else:
     print("invalid input ")
 
 #challenge: compare 3 numbers, check if they are positive, include the option for user to run the
-t#he peogram without restarting
-
+#the peogram without restarting
 
 while True:
     print("-----Welcome to Number comparison program----")
@@ -51,3 +50,5 @@ while True:
             continue
         else:
             break
+
+        

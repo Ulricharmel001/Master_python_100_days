@@ -49,7 +49,7 @@ print(f"Addition : {number1+number2}")
 print(f"Subtraction: {number1-number2}")
 print(f"Multiplication: {number1*number2}")
 if number2 == 0:
-    print("Divion by zero is not allowed ")
+    print("Divion by zero is  not allowed ")
     exit()
 print(f"Division: {number1/number2}")
 print(f"Floor Division : {number1//number2}")
