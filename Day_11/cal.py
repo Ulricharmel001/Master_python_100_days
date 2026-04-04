@@ -58,5 +58,10 @@ while True:
             break
     except ValueError:
         print("Error : Invalid input ")
-    except ZeroDivisionError:
-        print("Division by zero not possible")
+    except ZeroDivisionError as e:
+        print(f"Division by zero not possible {e}")
+    except Exception as e:
+        print("Unexpected Error")
+    finally:
+        print("Thank you for using safe calculator ")
+    
