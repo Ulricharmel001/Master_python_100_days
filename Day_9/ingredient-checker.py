@@ -22,4 +22,4 @@ else:
 if extra_ingredient:
     print(f"You have extra ingredient: {", ".join(extra_ingredient)}")
 else:
-    print("You have all ingredient needed! ")
+    print("You have all ingredient needed!")
