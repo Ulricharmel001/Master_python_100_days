@@ -1,4 +1,4 @@
-
+FILE = "Error.txt"
 
 def add(x, y):
     return x + y
@@ -7,8 +7,6 @@ def multiply(x,y):
     return x * y
 
 def divide(x,y):
-    if y == 0:
-        raise ZeroDivisionError("ERROR: division by zero is not possible!")
     return x / y
 def substract(x,y):
     return x - y
@@ -34,9 +32,10 @@ while True:
     showMenu()
     choice = input(" Enter your choice !")
     if choice == "7":
-        print("Thank you for using safe calculator")
-        print("Bye!")
-        break
+            print("Thank you for using safe calculator")
+            print("Bye!")
+            break
+    
 
     try:
         x = int(input("Enter the first number!"))
@@ -53,14 +52,17 @@ while True:
             print("Result :", modular(x,y))
         elif choice == "6":
             print("Result: ",    raiseToPower(x, y))
-        elif choice == "7":
-            print("Bye Thank you for using safe calculator")
-            break
-    except ValueError:
+       
+        with open(FILE, 'a') as file:
+           file.write(f"Error: Invalid Value {e} \n")
         print("Error : Invalid input ")
     except ZeroDivisionError as e:
+        with open(FILE, "a") as file:
+            file.write(f"Error: Cannot divide by zero {e}\n" )
         print(f"Division by zero not possible {e}")
     except Exception as e:
+        with open(FILE, 'a') as file:
+            file.write(f"Error: Unexpected eeror, {e}\n")
         print("Unexpected Error")
     finally:
         print("Thank you for using safe calculator ")
