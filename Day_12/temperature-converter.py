@@ -33,20 +33,21 @@ while True:
     try:
         show_menu()
         choice =input("Enter your choice [1/2/3/4]\n")
+        decimal_place = int(input("Enter your prefered decimal places\n"))
 
 
         if choice == "1":
             celsius = float(input("Enter temperature in Celsius\n"))
-            print(f"Fahrenheit : {celsius_to_fahrenheit(celsius):.2f}")
-            print(f"Kelvin: {celsius_to_kelvin(celsius):.2f}")
+            print(f"Fahrenheit : {celsius_to_fahrenheit(celsius):.{decimal_place}f}")
+            print(f"Kelvin: {celsius_to_kelvin(celsius):.{decimal_place}f}")
         elif choice == "2":
             fahrenheit = float(input("Enter your temperature in Fahrenheit\n"))
-            print(f"Kelvin : {fahrenheit_to_kelvin(fahrenheit):.2f}")
-            print(f"Celsius : {fahrenheit_to_celsius(fahrenheit):.2f}")
+            print(f"Kelvin : {fahrenheit_to_kelvin(fahrenheit):.{decimal_place}f}")
+            print(f"Celsius : {fahrenheit_to_celsius(fahrenheit):.{decimal_place}f}")
         elif choice == "3":
             kelvin = float(input("Enter temperature in Kelvin!\n"))
-            print(f"Celsius: {kelvin_to_celsius(kelvin):.2f}")
-            print(f"Fahrenheit: {kelvin_to_fahrenheit(kelvin):.2f}")
+            print(f"Celsius: {kelvin_to_celsius(kelvin):.{decimal_place}f}")
+            print(f"Fahrenheit: {kelvin_to_fahrenheit(kelvin):.{decimal_place}f}")
         elif choice == "4":
             confirm = input("Are you sure you want to exit app [yes/no]?")
             if confirm.lower() == "yes":
