@@ -5,6 +5,7 @@
 studentScores = input(" Enter Students scores seperated by comma: ")
 scores = [int(score) for score in studentScores.split(",")]
 
+
 # assign grade using list comprehension 
 
 grades =[
@@ -21,6 +22,14 @@ grades =[
 
 passedStudents = [score for score in scores if score >=50]
 failedStudent  = [score for score in scores if score < 50]
+averageScore = [sum(scores)/len(scores)]
+sortAcendingOrder = sorted(scores)
+sortDecendingOrder = sorted(scores, reverse=True)
+lowestScore = min(scores)
+highestScore = max(scores) 
+
+
+
 
 #  display results
 print("\n --- Results--- ")
@@ -30,3 +39,8 @@ for i, (score, grade) in enumerate(zip(scores, grades), start=1):
 print("\n ----Passing And Failling Students----")
 print("Passing students:", passedStudents)
 print("Failling Students: ", failedStudent)
+print("Average score: ", averageScore)
+print("Sorted in Acending Order :", sortAcendingOrder)
+print("Sorted in Decending Order :", sortDecendingOrder)
+print( "The highest score is :", highestScore)
+print("The Lowest score is :", lowestScore)

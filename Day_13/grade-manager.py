@@ -1,3 +1,2 @@
 # Student grade manager 
 
-E
