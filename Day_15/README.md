@@ -9,4 +9,4 @@ r+ read and write
 ## Challenge
 1. add option to search recipe by ingredient 
 2. add option for user to add new recipe
-3. add option to sae new enter recipe in the same file .
+3. add option to save new enter recipe in the same file .

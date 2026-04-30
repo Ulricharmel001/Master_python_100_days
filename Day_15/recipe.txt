@@ -1,11 +1,4 @@
-Pancakes
-Ingredients: Flour, Milk, Eggs, Sugar, Oil 
-Instructions: Mix the Ingredients and fry 
+fufu
+Ingredients: corn flower, water
+Instructions: boil water and add corn flower
 
-Salad
-Ingredients: Lettuce, Tomato, Cucumber, Egg, Venigraph
-Instructions: Chop Ingredients and Mix
-
-Smoothie
-Ingredients: Banana, Milk, Honey
-Instructions: Blend all the Ingredients
