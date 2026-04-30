@@ -38,15 +38,20 @@ def view_recipe(recipes):
         print("Recipe not found")
 # Step 4 : add new recipe
 def add_recipe(recipes):
-    name = input("Enter the name of the new recipe: ").strip()
-    ingredients = input("Enter the ingredients (comma separated): ").strip()
-    instructions = input("Enter the instructions: ").strip()
-    
-    if name in recipes:
-        print("Recipe already exists!")
-    else:
-        recipes[name] = {"ingredients": ingredients, "instructions": instructions}
-        print(f"Recipe '{name}' added successfully!")
+    try:
+        with open('recipe.txt', 'a') as file:
+            name = input("Enter the name of the new recipe: ").strip()
+            ingredients = input("Enter the ingredients (comma separated): ").strip()
+            instructions = input("Enter the instructions: ").strip()
+            
+            if name in recipes:
+                print("Recipe already exists!")
+            else:
+                file.write(f"{name}\nIngredients: {ingredients}\nInstructions: {instructions}\n\n")
+                recipes[name] = {"ingredients": ingredients, "instructions": instructions}
+                print(f"Recipe '{name}' added successfully!")
+    except Exception as e:        
+        print(f"Error adding recipe: {e}")
 
 # step 5 : Main program
 recipe_file = 'recipe.txt'
@@ -55,7 +60,7 @@ recipes = load_recipe(recipe_file)
 if recipes is not None:
     while True:
         show_menu()
-        choice = input("Enter your choice [1/2/3]: ")
+        choice = input("Enter your choice [1/2/3/4]: ")
         if choice == '1':
             print("\n--All Recipes--")
             for name in recipes:
@@ -63,5 +68,7 @@ if recipes is not None:
         elif choice == '2':
             view_recipe(recipes)
         elif choice == '3':
+            add_recipe(recipes)
+        elif choice == '4':
             print("Exiting program!")
             break
