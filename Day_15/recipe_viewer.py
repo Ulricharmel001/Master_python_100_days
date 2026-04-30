@@ -36,8 +36,19 @@ def view_recipe(recipes):
         print(f"Instructions: {recipes[name]['instructions']} ")
     else:
         print("Recipe not found")
+# Step 4 : add new recipe
+def add_recipe(recipes):
+    name = input("Enter the name of the new recipe: ").strip()
+    ingredients = input("Enter the ingredients (comma separated): ").strip()
+    instructions = input("Enter the instructions: ").strip()
+    
+    if name in recipes:
+        print("Recipe already exists!")
+    else:
+        recipes[name] = {"ingredients": ingredients, "instructions": instructions}
+        print(f"Recipe '{name}' added successfully!")
 
-# step 4 : Main program
+# step 5 : Main program
 recipe_file = 'recipe.txt'
 recipes = load_recipe(recipe_file)
 
