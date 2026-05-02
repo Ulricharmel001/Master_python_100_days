@@ -44,15 +44,23 @@ def deleteItem():
     except FileNotFoundError:
         print("File not found, Add a new journal file")
 
-
-
-
+def exportJournal():
+    try:
+        with open(FILENAME, 'r') as file:
+            entries = file.readlines()
+            export_filename = input("Enter the filename to export the journal\n")
+            with open(export_filename, 'w') as export_file:
+                export_file.writelines(entries)
+            print(f"Journal exported to {export_filename}")
+    except FileNotFoundError:
+        print("File not found, Add a new journal file")
 def showMenu():
     print("1. Add Journal Entry")
     print("2. Read Journal Entries")
     print("3. Search Journal Entries")
     print("4. Delete Journal Entry")
-    print("4. Exit")
+    print("5. Export Journal")
+    print("6. Exit")
 
 while True:
         showMenu()
