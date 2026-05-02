@@ -21,7 +21,7 @@ def readJournal():
                 print(entry)
     except FileNotFoundError:
         print("File not found, Add a new journal file")
-
+# step 4: Search for a specific entry in the journal
 def searchJournal():
     try:
         with open(FILENAME, 'r') as file:
@@ -44,6 +44,7 @@ def deleteItem():
     except FileNotFoundError:
         print("File not found, Add a new journal file")
 
+# Step 5: Export the journal entries to a new file
 def exportJournal():
     try:
         with open(FILENAME, 'r') as file:
@@ -54,6 +55,8 @@ def exportJournal():
             print(f"Journal exported to {export_filename}")
     except FileNotFoundError:
         print("File not found, Add a new journal file")
+
+# Step 6: Create a menu for the journal application
 def showMenu():
     print("1. Add Journal Entry")
     print("2. Read Journal Entries")
@@ -62,6 +65,7 @@ def showMenu():
     print("5. Export Journal")
     print("6. Exit")
 
+# Main function to run the journal application
 while True:
         showMenu()
         choice = input("Enter your choice\n")
@@ -74,6 +78,8 @@ while True:
         elif choice == '4':
             deleteItem()
         elif choice == '5':
+            exportJournal()
+        elif choice == '6':
             print("Exiting the journal application")
             break
         else:
