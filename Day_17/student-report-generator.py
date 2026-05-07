@@ -20,18 +20,23 @@ def process_studdent_data(input_file, output_file):
                     continue
                 average = (math + eng + french) / 3
                 status = 'pass' if average >= 60 else 'fail'
+                class_division = "First Class" if  average >= 90 else 'Second Class Upper' if  average >= 80 else  'Second class Lower' if average  >= 70 else 'Passed' if average <= 59 else 'Repeat'
+                performance = 'Exellence' if average >= 90 else 'Good' if average >= 80 else 'Above Average' if average >= 70 else 'Average' if average >= 6 else 'Failed'
                 student_report.append({
                     'Name': name,
                     'Math': math,
                     'English' : eng,
                     'French' : french,
                     'Average': round(average, 2),
-                    'Status': status
+                    'Status': status,
+                    'Class' : class_division,
+                    'Performance' : performance
+
                 })
 # step 2 : calculate average and determine pass/fail status
 
         with open(output_file, 'w', newline='') as outfile:
-            fieldnames = ['Name', 'Math', 'English', 'French', 'Average', 'Status']
+            fieldnames = ['Name', 'Math', 'English', 'French', 'Average', 'Status', 'Class','Performance']
             writer = csv.DictWriter(outfile, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(student_report)

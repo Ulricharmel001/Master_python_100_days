@@ -1,6 +1,8 @@
-Name,Math,English,French,Average,Status
-Evans,60,70,80,70.0,pass
-Henry,50,80,90,73.33,pass
-Mary,60,90,78,76.0,pass
-Hans,20,80,50,50.0,fail
-Faith,30,90,90,70.0,pass
+Name,Math,English,French,Average,Status,Class,Performance
+Evans,60,70,80,70.0,pass,Second class Lower,Above Average
+Henry,50,80,90,73.33,pass,Second class Lower,Above Average
+Mary,60,90,78,76.0,pass,Second class Lower,Above Average
+Hans,20,80,50,50.0,fail,Passed,Average
+Faith,30,90,90,70.0,pass,Second class Lower,Above Average
+Fabrice,90,100,98,96.0,pass,First Class,Exellence
+Hanley,80,90,85,85.0,pass,Second Class Upper,Good
