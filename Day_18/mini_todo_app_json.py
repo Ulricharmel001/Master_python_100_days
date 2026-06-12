@@ -17,7 +17,8 @@ def save_tasks(tasks):
 def add_task():
     task_name = input("Enter task name: ")
     tasks = load_tasks()
-    tasks.append({"Task": task_name, "Status": "Incomplete"})
+    due_date = input("Enter due date (YYYY-MM-DD): ")
+    tasks.append({"Task": task_name, "Status": "Incomplete", "Due Date": due_date})
     print(f"Task '{task_name}' added.")
     save_tasks(tasks)
 # view tasks
@@ -64,6 +65,27 @@ def edit_task():
 def quit_app():
     print("Exiting the application. Goodbye!")
     exit()
+
+    # save completed tasks in a separate file
+def save_completed_tasks():
+    tasks = load_tasks()
+    completed_tasks = [task for task in tasks if task['Status'].lower() == 'complete']
+    with open('completed_tasks.json', 'w') as file:
+        json.dump(completed_tasks, file, indent=4)
+    print("Completed tasks saved to 'completed_tasks.json'.")
+
+# sort alphabetically base on name 
+def sort_tasks_by_name():
+    tasks = load_tasks()
+    sorted_tasks = sorted(tasks, key=lambda x: x['Task'].lower())
+    save_tasks(sorted_tasks)
+    print("Tasks sorted by name.")
+# sort tasks by due date
+def sort_tasks_by_due_date():
+    tasks = load_tasks()
+    sorted_tasks = sorted(tasks, key=lambda x: x['Due Date'])
+    save_tasks(sorted_tasks)
+    print("Tasks sorted by due date.")
 # display menu
 def display_menu():
     print("\n1. Add Task")
@@ -71,7 +93,10 @@ def display_menu():
     print("3. Update Task Status")
     print("4. Delete Task")
     print("5. Edit Task")
-    print("6  Exit")
+    print("6. Sort Tasks by Name")
+    print("7. Sort Tasks by Due Date")
+    print("8. Save Completed Tasks")
+    print("9. Exit")
 
 
 # MAIN FUNCTION
@@ -90,6 +115,12 @@ def main():
         elif choice == '5':
             edit_task()
         elif choice == '6':
+            sort_tasks_by_name()
+        elif choice == '7':
+            sort_tasks_by_due_date()
+        elif choice == '8':
+            save_completed_tasks()
+        elif choice == '9':
             quit_app()
         else:
             print("Invalid choice. Please try again.")
