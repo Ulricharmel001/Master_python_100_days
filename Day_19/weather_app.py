@@ -1,4 +1,5 @@
 # Weather app using OpenWeatherMap API
+from datetime import datetime
 import json
 import dotenv
 import os
@@ -22,8 +23,8 @@ def get_weather(city):
                 "description": weather_data["weather"][0]["description"],
                 "humidity": weather_data["main"]["humidity"],
                 "wind_speed": weather_data["wind"]["speed"],   
-                "sunrise": weather_data["sys"]["sunrise"],
-                "sunset": weather_data["sys"]["sunset"]
+                "sunrise": datetime.fromtimestamp(weather_data["sys"]["sunrise"]).strftime("%H:%M:%S"),
+                "sunset": datetime.fromtimestamp(weather_data["sys"]["sunset"]).strftime("%H:%M:%S")
             }
 
             return weather_data
