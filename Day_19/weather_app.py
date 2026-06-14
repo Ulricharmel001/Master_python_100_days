@@ -86,6 +86,18 @@ def multiple_cities_weather(cities):
         weather_data = get_weather(city)
         if weather_data:
             weather_data_list.append(weather_data)
+            choice = input(f"Do you want to export the weather data for {city} to a file? (yes/no): ").strip().lower()
+            if choice == "yes":
+                filename = input(f"Enter the filename for {city} weather data (with .json extension): ").strip()
+                if not filename.endswith(".json"):
+                    print("Invalid filename. Defaulting to 'weather_data.json'.")
+                    filename = "weather_data.json"
+                try:
+                    with open(filename, "w") as file:
+                        json.dump(weather_data, file, indent=4)
+                    print(f"Weather data for {city} exported to {filename}")
+                except IOError as e:
+                    print(f"Error exporting weather data for {city}: {e}")
     return weather_data_list
 
 
